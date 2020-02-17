@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Eltox table</title>
+		    <style>
+				tr{
+					text-align: center;	
+				}
+			</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Номер процедуры</th> <th>Номер извещения ООС</th> <th>Ссылка на процедуру</th> <th>Электронная почта</th> <th>Документы</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php for($i=0;$i<$maxProc; $i++){?>
+					<tr>
+						 <td><?php echo $entity->getNumberProc()[$i]?></td> <td><?php echo $entity->getNumberOOS()[$i]?></td> <td><a href = <?php echo $entity->getRefProc()[$i]?>> <?php echo $entity->getRefProc()[$i]?></a></td> <td><?php echo $entity->getEmailProc()[$i]?></td>  <td align="left"><?php $j=0; foreach($entity->getRefOnDoc()[$i]->getRefOnDoc() as $key): ?> <a href =<?php echo $key?>> <?php echo $entity->getRefOnDoc()[$i]->getNameDoc()[$j]; $j++;?> </a></br><?php endforeach;?></td>
+					</tr>
+				<?php }?>
+			</tbody>
+		</table>
+	</body>
+</html>				
